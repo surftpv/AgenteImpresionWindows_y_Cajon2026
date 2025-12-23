@@ -115,7 +115,8 @@ class PrintAgent:
         """Split tall images into chunks for ESC/POS printers."""
         ret = []
         w, h = im.size
-        max_height = 2000  # adjust as per printer buffer capability
+        max_height = 800  # adjust as per printer buffer capability
+        sleep(0.5)
         y_slices = (h + max_height - 1) // max_height
         slice_h = h // y_slices
 
@@ -146,3 +147,4 @@ if __name__ == "__main__":
         printer_ips=["192.168.1.23", "192.168.1.24"]
     )
     agent.start()
+
